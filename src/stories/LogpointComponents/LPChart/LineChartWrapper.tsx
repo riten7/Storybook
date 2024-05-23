@@ -2,16 +2,15 @@ import React from "react";
 import { lineChartData } from "../../Library/Chart/json/LineChartData";
 import LineChart from "../../Library/Chart/Line";
 
-type LPChartProps = {
+type LineChartWrapperProps = {
   width?: number;
   height?: number;
 }
 
-const LPLineChart: React.FC<LPChartProps> = () => {
+const LineChartWrapper: React.FC<LineChartWrapperProps> = () => {
   const config = {
     autoFit: true,
     data: lineChartData,
-    height: 150,
     xField: "year",
     yField: "value",
     axis: {
@@ -37,7 +36,7 @@ const LPLineChart: React.FC<LPChartProps> = () => {
       lineWidth: 2,
     },
   };
-  return <LineChart label={'Chart'} config={config} />
+  return <LineChart label={'Chart'} config={config} defaultInitialWidth={200} />
 };
 
-export default LPLineChart;
+export default LineChartWrapper;

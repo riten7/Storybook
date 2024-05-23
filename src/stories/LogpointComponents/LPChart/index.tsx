@@ -2,10 +2,10 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import styled from "styled-components";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
-import LPLineChart from "./LPLineChart";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { GridProps, Layout } from "../../Library/GridLayout/types";
 import { defaultGridProps } from "../../Library/GridLayout/constant";
+import LineChartWrapper from "./LineChartWrapper";
 
 const GridItemWrapper = styled.div`
   background: #f5f5f5;
@@ -50,16 +50,10 @@ const grids = [
 const LPChart: React.FC<LPGridProps> = ({ gridProps }) => {
 
   const ResponsiveReactGridLayout = useMemo(() => WidthProvider(Responsive), []);
-
-  const [keys, setKeys] = useState({});
-
   const mergedGridProps = { ...defaultGridProps, ...gridProps };
 
-  const handleResizeStop = (oldItem: Layout, newItem: Layout) => {
-    setKeys((prevKeys) => ({
-      ...prevKeys,
-      [newItem.i]: Date.now() + newItem.i,
-    }));
+  const handleResizeStop = (oldItem: Layout,) => {
+    console.log("oldItem", oldItem);
   };
 
   return (
@@ -71,9 +65,7 @@ const LPChart: React.FC<LPGridProps> = ({ gridProps }) => {
       >
         {grids.map((grid) => (
             <GridItemWrapper key={grid.key}>
-            <LPLineChart
-              key={keys[grid.key as keyof typeof keys] || grid.key}
-            />
+            <LineChartWrapper />
           </GridItemWrapper>
           
         ))}

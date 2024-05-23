@@ -42,9 +42,38 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Line: Story = {
   args: {
     config: config,
+    defaultInitialWidth: 400,
     label: 'Line Chart',
+    chartType: 'line',
+  },
+};
+
+export const Bar: Story = {
+  args: {
+    config: config,
+    defaultInitialWidth: 400,
+    label: 'Bar Chart',
+    chartType: 'bar',
+  },
+};
+
+export const Column: Story = {
+  args: {
+    config: config,
+    defaultInitialWidth: 400,
+    label: 'Column Chart',
+    chartType: 'column',
+  },
+};
+
+export const Pie: Story = {
+  args: {
+    config: config,
+    defaultInitialWidth: 400,
+    label: 'Pie Chart',
+    chartType: 'pie',
   },
 };
