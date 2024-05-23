@@ -1,24 +1,16 @@
-import { Line } from "@ant-design/plots";
 import React from "react";
 import { lineChartData } from "../../Library/Chart/json/LineChartData";
-import styled from "styled-components";
+import LineChart from "../../Library/Chart/Line";
 
 type LPChartProps = {
   width?: number;
   height?: number;
 }
 
-const LineWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`
-
-const LPLineChart: React.FC<LPChartProps> = ({ width, height }) => {
+const LPLineChart: React.FC<LPChartProps> = () => {
   const config = {
     autoFit: true,
     data: lineChartData,
-    // width: width,
     height: 150,
     xField: "year",
     yField: "value",
@@ -45,9 +37,7 @@ const LPLineChart: React.FC<LPChartProps> = ({ width, height }) => {
       lineWidth: 2,
     },
   };
-  return <LineWrapper>
-      <Line {...config} />
-  </LineWrapper>
+  return <LineChart label={'Chart'} config={config} />
 };
 
 export default LPLineChart;
