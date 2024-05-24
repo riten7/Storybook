@@ -24,6 +24,7 @@ export const defaultGridProps: DefaultGridProps = {
     xs: GRID_COLUMN_COUNT_XS,
     xxs: GRID_COLUMN_COUNT_XSS
   },
+  breakpoints: {lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0},
   margin: [GRID_CELL_VMARGIN, GRID_CELL_VMARGIN],
   containerPadding: [0, 0],
   rowHeight: GRID_CELL_HEIGHT,

@@ -31,7 +31,7 @@ const config = {
 };
 
 const meta = {
-  title: 'Library/Chart/Line',
+  title: 'Library/Chart/Column',
   component: Chart,
   parameters: {
     layout: 'centered',
@@ -42,11 +42,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Line: Story = {
+export const Column: Story = {
   args: {
     config: config,
     defaultInitialWidth: 400,
-    // label: 'Line Chart',
-    chartType: 'line',
+    // label: 'Column Chart',
+    chartType: 'column',
   },
 };

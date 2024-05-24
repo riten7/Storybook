@@ -5,7 +5,8 @@ import "react-resizable/css/styles.css";
 import React, { useMemo } from "react";
 import { GridProps, Layout } from "../../Library/GridLayout/types";
 import { defaultGridProps } from "../../Library/GridLayout/constant";
-import LineChartWrapper from "./LineChartWrapper";
+import LpWidgetWrapper from "./LpWidgetWrapper";
+import { LPWidgetWrapperProps } from "./types";
 
 const GridItemWrapper = styled.div`
   background: #f5f5f5;
@@ -28,31 +29,43 @@ const grids = [
   {
     key: "blue-eyes-dragon",
     title: "Blue Eyes Dragon",
+    type: "line"
   },
   {
     key: "dark-magician",
     title: "Dark Magician",
+    type: "bar"
   },
   {
     key: "kuriboh",
     title: "Kuriboh",
+    type: "column"
   },
   {
     key: "spell-caster",
     title: "Spell Caster",
+    type: "radar"
   },
   {
     key: "summoned-skull",
     title: "Summoned Skull",
+    type: "sankey"
+  },
+  {
+    key: "summoned-banger",
+    title: "Summoned Banger",
+    type: "pie"
   },
 ];
 
-const LPChart: React.FC<LPGridProps> = ({ gridProps }) => {
-
-  const ResponsiveReactGridLayout = useMemo(() => WidthProvider(Responsive), []);
+const LPWidget: React.FC<LPGridProps> = ({ gridProps }) => {
+  const ResponsiveReactGridLayout = useMemo(
+    () => WidthProvider(Responsive),
+    []
+  );
   const mergedGridProps = { ...defaultGridProps, ...gridProps };
 
-  const handleResizeStop = (oldItem: Layout,) => {
+  const handleResizeStop = (oldItem: Layout) => {
     console.log("oldItem", oldItem);
   };
 
@@ -64,14 +77,13 @@ const LPChart: React.FC<LPGridProps> = ({ gridProps }) => {
         onResizeStop={handleResizeStop}
       >
         {grids.map((grid) => (
-            <GridItemWrapper key={grid.key}>
-            <LineChartWrapper />
+          <GridItemWrapper key={grid.key}>
+            <LpWidgetWrapper chartType={grid.type as LPWidgetWrapperProps['chartType']} />
           </GridItemWrapper>
-          
         ))}
       </ResponsiveReactGridLayout>
     </Root>
   );
 };
 
-export default LPChart;
+export default LPWidget;

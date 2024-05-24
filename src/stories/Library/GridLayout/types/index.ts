@@ -9,6 +9,7 @@ export type Layout = {
 export type DefaultGridProps = {
   autoSize: boolean;
   // cols: number;
+  breakpoints: { lg: number; md: number; sm: number; xs: number; xxs: number };
   cols: { lg: number; md: number; sm: number; xs: number; xxs: number };
   margin: [number, number];
   containerPadding: [number, number];
