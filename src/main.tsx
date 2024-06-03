@@ -1,10 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import Chart from "./stories/Library/Chart";
+import BasicGridLayout from "./stories/Library/GridLayout/BasicGridLayout";
+import LPWidgetComponent from "./stories/LogpointComponents/LPWidget";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+export const LPWidget = LPWidgetComponent;
+
+export const LPGridLayout = BasicGridLayout;
+
+export const LPChart = Chart;

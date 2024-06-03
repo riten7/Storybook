@@ -5,5 +5,4 @@ export const layoutData = [
   { i: "spell-caster", x: 3, y: 0, w: 4, h: 2 },
   { i: "summoned-skull", x: 4, y: 0, w: 4, h: 2 },
   { i: "summoned-banger", x: 5, y: 0, w: 4, h: 2 },
-
 ];
