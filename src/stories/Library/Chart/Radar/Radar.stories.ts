@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { radarData } from '../json/RadarData';
-import Chart from '..';
+import Chart from '../../../../components/Chart/Chart';
 
 const config = {
   data: radarData.map((d) => ({ ...d, star: Math.sqrt(d.star) })),

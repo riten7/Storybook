@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import Chart from "../../Library/Chart";
+import Chart from "../../../components/Chart/Chart";
+import { areaConfig, barConfig, lineConfig, pieConfig, sankeyConfig } from "../../../components/LogpointComponents/LPWidget/utils";
 import { LPWidgetWrapperProps } from "./types";
-import { areaConfig, barConfig, lineConfig, pieConfig, sankeyConfig } from "./utils";
 
 const LPWidgetWrapper: React.FC<LPWidgetWrapperProps> = ({ chartType = 'line'}) => {
 

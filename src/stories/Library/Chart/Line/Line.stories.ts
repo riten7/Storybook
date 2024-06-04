@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { lineChartData } from '../json/LineChartData';
-import Chart from '..';
+import Chart from '../../../../components/Chart/Chart';
 
 const config = {
   data: lineChartData,

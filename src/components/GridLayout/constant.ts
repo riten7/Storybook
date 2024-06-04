@@ -1,5 +1,6 @@
 import { DefaultGridProps } from "./types";
 
+
 export const GRID_CELL_HEIGHT = 150;
 export const GRID_CELL_VMARGIN = 8;
 export const GRID_COLUMN_COUNT_LG = 12;

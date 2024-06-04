@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import BasicGridLayout from '.';
-import { layoutData } from '../json/data';
+import BasicGridLayout from '../../../components/GridLayout';
+import { layoutData } from '../../../components/GridLayout/json/data';
 
 const meta = {
   title: 'Library/GridLayout/BasicGridLayout',

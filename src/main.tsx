@@ -1,6 +1,6 @@
-import Chart from "./stories/Library/Chart";
-import BasicGridLayout from "./stories/Library/GridLayout/BasicGridLayout";
-import LPWidgetComponent from "./stories/LogpointComponents/LPWidget";
+import Chart from "./components/Chart/Chart";
+import BasicGridLayout from "./components/GridLayout";
+import LPWidgetComponent from "./components/LogpointComponents/LPWidget";
 
 export const LPWidget = LPWidgetComponent;
 

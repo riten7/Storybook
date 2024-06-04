@@ -2,9 +2,9 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import styled from "styled-components";
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-import { GridProps } from "../types";
+import { GridProps } from "./types";
 import React from "react";
-import { defaultGridProps } from "../constant";
+import { defaultGridProps } from "./constant";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 

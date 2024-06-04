@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { areaChartData } from '../json/AreaChartData';
-import Chart from '..';
+import Chart from '../../../../components/Chart/Chart';
 
 const config = {
   data: areaChartData,

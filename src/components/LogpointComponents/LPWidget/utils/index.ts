@@ -1,7 +1,7 @@
-import { areaChartData } from "../../../Library/Chart/json/AreaChartData";
-import { barChartData } from "../../../Library/Chart/json/BarChartData";
-import { lineChartData } from "../../../Library/Chart/json/LineChartData";
-import { sankeyData } from "../../../Library/Chart/json/SankeyChartData";
+import { areaChartData } from "../../../../stories/Library/Chart/json/AreaChartData";
+import { barChartData } from "../../../../stories/Library/Chart/json/BarChartData";
+import { lineChartData } from "../../../../stories/Library/Chart/json/LineChartData";
+import { sankeyData } from "../../../../stories/Library/Chart/json/SankeyChartData";
 
 export const lineConfig = {
   autoFit: true,
