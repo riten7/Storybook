@@ -11,5 +11,14 @@ export default defineConfig({
       name: 'components',
       fileName: (format) => `components.${format}.js`,
     },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    }
   },
 })

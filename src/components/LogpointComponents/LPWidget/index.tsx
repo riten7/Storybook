@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import React, { useMemo } from "react";
-import { GridProps, Layout } from "../../GridLayout/types";
+import { GridProps } from "../../GridLayout/types";
 import { LPWidgetWrapperProps } from "./types";
 import { defaultGridProps } from "../../GridLayout/constant";
 import LPWidgetWrapper from "./LpWidgetWrapper";
@@ -65,9 +65,7 @@ const LPWidget: React.FC<LPGridProps> = ({ gridProps }) => {
   );
   const mergedGridProps = { ...defaultGridProps, ...gridProps };
 
-  const handleResizeStop = (oldItem: Layout) => {
-    console.log("oldItem", oldItem);
-  };
+  const handleResizeStop = () => {};
 
   return (
     <Root>
