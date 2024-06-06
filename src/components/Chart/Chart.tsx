@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 import { Area, Line, Bar, Column, Pie, Sankey } from "@ant-design/charts";
@@ -5,7 +6,7 @@ import { Area, Line, Bar, Column, Pie, Sankey } from "@ant-design/charts";
 type ChartProps<T> = {
   config: T;
   defaultInitialWidth?: number;
-  chartType: 'area' | 'line' | 'bar' | 'column' | 'pie' | 'sankey' | 'radar';
+  chartType: "area" | "line" | "bar" | "column" | "pie" | "sankey" | "radar";
 };
 
 const ChartWrapper = styled.div`
@@ -14,9 +15,14 @@ const ChartWrapper = styled.div`
   position: relative;
 `;
 
-const Chart: React.FC<ChartProps<unknown>> = ({ config, defaultInitialWidth = 200, chartType }) => {
+const Chart: React.FC<ChartProps<unknown>> = ({
+  config,
+  defaultInitialWidth = 200,
+  chartType,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = useState<number>(defaultInitialWidth);
+  const [containerWidth, setContainerWidth] =
+    useState<number>(defaultInitialWidth);
 
   const updatedConfig = useMemo(() => {
     return {
@@ -44,28 +50,24 @@ const Chart: React.FC<ChartProps<unknown>> = ({ config, defaultInitialWidth = 20
 
   const renderChart = () => {
     switch (chartType) {
-      case 'line':
+      case "line":
         return <Line {...updatedConfig} />;
-      case 'bar':
+      case "bar":
         return <Bar {...updatedConfig} />;
-      case 'column':
+      case "column":
         return <Column {...updatedConfig} />;
-      case 'pie':
+      case "pie":
         return <Pie {...updatedConfig} />;
-      case 'area':
+      case "area":
         return <Area {...updatedConfig} />;
-      case 'sankey':
+      case "sankey":
         return <Sankey {...updatedConfig} />;
       default:
         return <Line {...updatedConfig} />;
     }
   };
 
-  return (
-    <ChartWrapper ref={containerRef}>
-      {renderChart()}
-    </ChartWrapper>
-  );
+  return <ChartWrapper ref={containerRef}>{renderChart()}</ChartWrapper>;
 };
 
 export default Chart;
