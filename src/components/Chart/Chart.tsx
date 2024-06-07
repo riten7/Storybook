@@ -1,27 +1,23 @@
 /* eslint-disable no-empty-pattern */
 import './chart.css';
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Area, Line, Bar, Column, Pie, Sankey } from "@ant-design/charts";
 
-export interface ChartProps  {
-  config: any;
+export interface ChartProps<T>  {
+  config: T;
   defaultInitialWidth?: number;
   chartType: "area" | "line" | "bar" | "column" | "pie" | "sankey" | "radar";
 }
 
-const Chart: React.FC<ChartProps> = ({
+const Chart = <T,> ({
   config,
-  defaultInitialWidth,
+  defaultInitialWidth = 200,
   chartType,
-}) => {
-
-  // const containerRef = useRef<HTMLDivElement>(null);
-  
+}: ChartProps<T>): React.ReactElement => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] =
-    useState<number>(200);
-  console.log(config, defaultInitialWidth, chartType, setContainerWidth)
-
+    useState<number>(defaultInitialWidth);
 
   const updatedConfig = useMemo(() => {
     return {
@@ -30,22 +26,22 @@ const Chart: React.FC<ChartProps> = ({
     };
   }, [config, containerWidth]);
 
-  // useEffect(() => {
-  //   const container = containerRef.current;
-  //   const resizeObserver = new ResizeObserver((entries) => {
-  //     for (const entry of entries) {
-  //       if (entry.target === container) {
-  //         const { width } = entry.contentRect;
-  //         setContainerWidth(width);
-  //       }
-  //     }
-  //   });
-  //   container && resizeObserver.observe(container);
+  useEffect(() => {
+    const container = containerRef.current;
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === container) {
+          const { width } = entry.contentRect;
+          setContainerWidth(width);
+        }
+      }
+    });
+    container && resizeObserver.observe(container);
 
-  //   return () => {
-  //     container && resizeObserver.unobserve(container);
-  //   };
-  // }, []);
+    return () => {
+      container && resizeObserver.unobserve(container);
+    };
+  }, []);
 
   const renderChart = () => {
     switch (chartType) {
@@ -66,9 +62,7 @@ const Chart: React.FC<ChartProps> = ({
     }
   };
 
-   return <div className='chart-wrapper'>{renderChart()}</div>;
-  // return <div className='chart-wrapper' ref={containerRef}>{renderChart()}</div>;
-  // return <div>If it works</div>
+  return <div className='chart-wrapper' ref={containerRef}>{renderChart()}</div>;
 };
 
 export default Chart;
