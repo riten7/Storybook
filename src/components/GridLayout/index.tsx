@@ -1,5 +1,6 @@
+import './grid.css';
+
 import { Responsive, WidthProvider } from "react-grid-layout";
-import styled from "styled-components";
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import { GridProps } from "./types";
@@ -7,19 +8,6 @@ import React from "react";
 import { defaultGridProps } from "./constant";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
-
-const GridItemWrapper = styled.div`
-  background: #f5f5f5;
-  overflow: auto;
-`;
-
-const GridItemContent = styled.div`
-  padding: 8px;
-`;
-
-const Root = styled.div`
-  padding: 16px;
-`;
 
 type LPGridProps = {
   gridProps: GridProps;
@@ -31,28 +19,28 @@ const BasicGridLayout: React.FC<LPGridProps> = ({ gridProps }) => {
 
   const mergedGridProps = { ...defaultGridProps, ...gridProps };
   return (
-    <Root>
+    <div className="grid">
       <ResponsiveGridLayout
         className="layout"
         {...mergedGridProps}
       >
-        <GridItemWrapper key="blue-eyes-dragon">
-          <GridItemContent>Blue Eyes Dragon</GridItemContent>
-        </GridItemWrapper>
-        <GridItemWrapper key="dark-magician">
-          <GridItemContent>Dark Magician</GridItemContent>
-        </GridItemWrapper>
-        <GridItemWrapper key="kuriboh">
-          <GridItemContent>Kuriboh</GridItemContent>
-        </GridItemWrapper>
-        <GridItemWrapper key="spell-caster">
-          <GridItemContent>Spell Caster</GridItemContent>
-        </GridItemWrapper>
-        <GridItemWrapper key="summoned-skull">
-          <GridItemContent>Summoned Skull</GridItemContent>
-        </GridItemWrapper>
+        <div className="grid-item-wrapper" key="blue-eyes-dragon">
+          <div className="grid-item-content">Blue Eyes Dragon</div>
+        </div>
+        <div className="grid-item-wrapper" key="dark-magician">
+          <div className="grid-item-content">Dark Magician</div>
+        </div>
+        <div className="grid-item-wrapper" key="kuriboh">
+          <div className="grid-item-content">Kuriboh</div>
+        </div>
+        <div className="grid-item-wrapper" key="spell-caster">
+          <div className="grid-item-content">Spell Caster</div>
+        </div>
+        <div className="grid-item-wrapper" key="summoned-skull">
+          <div className="grid-item-content">Summoned Skull</div>
+        </div>
       </ResponsiveGridLayout>
-    </Root>
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
-import styled from "styled-components";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import React, { useMemo } from "react";
@@ -7,17 +6,6 @@ import { GridProps } from "../../GridLayout/types";
 import { LPWidgetWrapperProps } from "./types";
 import { defaultGridProps } from "../../GridLayout/constant";
 import LPWidgetWrapper from "./LpWidgetWrapper";
-
-const GridItemWrapper = styled.div`
-  background: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Root = styled.div`
-  padding: 16px;
-`;
 
 type LPGridProps = {
   gridProps: GridProps;
@@ -68,19 +56,19 @@ const LPWidget: React.FC<LPGridProps> = ({ gridProps }) => {
   const handleResizeStop = () => {};
 
   return (
-    <Root>
+    <div className="widget-grid">
       <ResponsiveReactGridLayout
         className="layout"
         {...mergedGridProps}
         onResizeStop={handleResizeStop}
       >
         {grids.map((grid) => (
-          <GridItemWrapper key={grid.key}>
+          <div className="widget-grid-item-wrapper" key={grid.key}>
             <LPWidgetWrapper chartType={grid.type as LPWidgetWrapperProps['chartType']} />
-          </GridItemWrapper>
+          </div>
         ))}
       </ResponsiveReactGridLayout>
-    </Root>
+    </div>
   );
 };
 

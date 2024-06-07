@@ -1,0 +1,12 @@
+.grid{
+  padding: 16px;
+}
+
+.grid-item-wrapper{
+  background: #f5f5f5;
+  overflow: auto;
+}
+
+.grid-item-content {
+  padding: 8px;
+}
