@@ -1,3 +1,4 @@
+import React from 'react';
 import './button.css';
 
 export interface ButtonProps {
@@ -22,6 +23,8 @@ export interface ButtonProps {
    */
   onClick?: () => void;
 }
+
+console.log('Providing project React version:', React.version);
 
 /**
  * Primary UI component for user interaction

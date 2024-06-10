@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import './chart.css';
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { Area, Line, Bar, Column, Pie, Sankey } from "@ant-design/charts";
 
 export interface ChartProps<T>  {
@@ -15,9 +15,12 @@ const Chart = <T,> ({
   defaultInitialWidth = 200,
   chartType,
 }: ChartProps<T>): React.ReactElement => {
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] =
-    useState<number>(defaultInitialWidth);
+    React.useState(defaultInitialWidth);
+
+    console.log({ React, containerWidth, setContainerWidth })
 
   const updatedConfig = useMemo(() => {
     return {
