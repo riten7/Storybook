@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path';
-// import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 // import tsconfigPaths from 'vite-tsconfig-paths'
 import {  peerDependencies } from './package.json';
@@ -26,7 +26,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   plugins: [
-    // react(),
+    react(),
     dts({
       insertTypesEntry: true,
       exclude: ['**/*.stories.tsx', '**/*.test.tsx'],  
