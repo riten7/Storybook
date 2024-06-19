@@ -1,34 +1,36 @@
 {
   "name": "storybook-components",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "main": "dist/components.cjs.js",
-  "module": "dist/components.es.js",
-  "types": "dist/exports.d.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/components.umd.cjs",
+  "module": "./dist/components.js",
   "exports": {
     ".": {
-      "import": "./dist/components.es.js",
-      "require": "./dist/components.umd.js"
+      "import": "./dist/components.js",
+      "require": "./dist/components.umd.cjs"
     },
     "./styles.css": {
       "require": "./dist/styles.css",
       "default": "./dist/styles.css"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -rf dist",
     "build": "npm run build-storybook && npm run build-components",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-components": "tsc && vite build"
+    "build-components": "tsc && vite build",
+    "publish": "npm run build && npm publish"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
