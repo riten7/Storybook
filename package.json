@@ -1,7 +1,6 @@
 {
-  "name": "storybook-components",
-  "private": true,
-  "version": "0.1.0",
+  "name": "@ui/storybook-components",
+  "version": "1.0.0",
   "type": "module",
   "files": [
     "dist"
@@ -65,5 +64,19 @@
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.9.1",
     "vite-tsconfig-paths": "^4.3.2"
-  }
+  },
+  "description": "UI Components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riten7/Storybook.git#main"
+  },
+  "keywords": [
+    "Storybook"
+  ],
+  "author": "Riten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riten7/Storybook/issues"
+  },
+  "homepage": "https://github.com/riten7/Storybook/tree/main#readme"
 }

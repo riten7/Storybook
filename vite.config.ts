@@ -9,10 +9,9 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    // /*  exclude: ['**/*.stories.tsx', '**/*.test.tsx'], */
     dts({
       rollupTypes: true,
-      exclude: ['**/storybook-static/**/*'],
+      exclude: ['**/storybook-static/**/*', '**/*.stories.tsx', '**/*.test.tsx'],
     }), 
   ],
   build: {
@@ -33,7 +32,6 @@ export default defineConfig({
           'react/jsx-runtime': 'react/jsx-runtime'
         },
       },
-    },
-    emptyOutDir: true,
+    }
   }
 })
