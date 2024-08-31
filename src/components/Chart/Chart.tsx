@@ -1,14 +1,19 @@
 /* eslint-disable no-empty-pattern */
-import './chart.css';
-
 import React, { useEffect, useMemo, useRef } from "react";
 import { Area, Line, Bar, Column, Pie, Sankey } from "@ant-design/charts";
+import styled from 'styled-components';
 
 export interface ChartProps<T>  {
   config: T;
   defaultInitialWidth?: number;
   chartType: "area" | "line" | "bar" | "column" | "pie" | "sankey" | "radar";
 }
+
+const ChartWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
 
 const Chart = <T,> ({
   config,
@@ -65,7 +70,7 @@ const Chart = <T,> ({
     }
   };
 
-  return <div className='chart-wrapper' ref={containerRef}>{renderChart()}</div>;
+  return <ChartWrapper ref={containerRef}>{renderChart()}</ChartWrapper>;
 };
 
 export default Chart;
