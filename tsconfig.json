@@ -31,7 +31,8 @@
     "storybook-static",
     "**/*.stories.tsx",
     "**/*.test.tsx",
-    "**/node_modules/@storybook/builder-vite/input/iframe.html"
+    "**/node_modules/@storybook/builder-vite/input/iframe.html",
+    "**/*.html"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
